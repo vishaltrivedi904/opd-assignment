@@ -1,4 +1,4 @@
-# KhushiBaby Android App - OPD Management System
+# KhushiBaby - OPD Management System - MVVM
 
 This is a scalable, offline-supported Android application developed for KhushiBaby using Kotlin, Jetpack Compose, Room for offline data persistence, Hilt for Dependency Injection, and MVVM architecture. The app implements a minimal OPD management flow, including patient registration, visit details, and prescription summary screens. The application is designed to work seamlessly in areas with limited or no internet connectivity by storing data locally and syncing it when network access is restored.
 
