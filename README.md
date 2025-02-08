@@ -34,7 +34,7 @@ The app follows the **MVVM (Model-View-ViewModel)** architecture to ensure a cle
 - **Hilt** is used to inject dependencies across the app. It simplifies the management of dependencies and avoids boilerplate code for DI.
 - **Hilt** is integrated for injecting instances of the **ViewModel**, **Repository**, and **Room Database** objects.
 - Hilt allows us to define dependencies in a clear, modular way and ensures the proper lifecycle management of components.
-  
+
 ### Coroutines
 - **Coroutines** are used for all asynchronous tasks such as database operations, network calls, and background syncing.
 - Room's database operations (e.g., insert, update, delete) are performed in the background using **Coroutines** to prevent blocking the main thread.
@@ -79,14 +79,43 @@ The app follows the **MVVM (Model-View-ViewModel)** architecture to ensure a cle
 4. If the user is offline, the data remains on the device and syncs automatically when the device reconnects to the internet.
 5. The app uses **Coroutines** to perform the network sync in the background without freezing the UI.
 
+## App Flow
+
+The app follows a specific user flow for navigating through the screens:
+
+1. **Splash Screen**: Initially, the app displays a splash screen.
+2. **Patient List Screen**: Once the splash screen finishes, the app opens the **Patient List Screen**.
+   - The screen will display a list of all registered patients.
+   - A **"Register Patient"** button is available to go to the **Patient Registration Screen**.
+3. **Patient Registration Screen**:
+   - The user can input patient details such as **Name**, **Age**, **Gender**, **Location**, and **Health ID**.
+   - After entering the required data, the user can save the details locally in the database.
+   - On successful save, the user is redirected back to the **Patient List Screen**.
+4. **Visit Details Screen**:
+   - In the **Patient List Screen**, when a patient is selected, the app navigates to the **Patient Visit Details Screen**.
+   - This screen allows the user to input **Visit Date**, **Symptoms**, **Diagnosis**, **Medicine Name**, **Dosage**, **Frequency**, and **Duration**.
+   - The visit details are saved locally in the database and can be synced with the server later when online.
+5. **Prescription Summary Screen**:
+   - After saving the visit details, the user can view the **Prescription Summary Screen**.
+   - This screen displays patient details, visit information, and prescriptions.
+   - The user can **Mark Visit as "Completed"**, which updates the status and saves it locally.
+   - Mock actions for **Printing** and **Sharing** prescriptions are available but not implemented.
+6. **Sync Logic**:
+   - If the device is online, the app syncs the local data with the server.
+   - If the device is offline, the data is saved locally and synchronized later when the device regains connectivity using **WorkManager**.
+   
 ## How to Run the App Locally
 
-### Prerequisites
-- Android Studio (latest version)
-- Kotlin SDK
-- Android Emulator or physical device for testing
+### Prerequisites:
+Before running the app, make sure you have the following:
 
-### Steps
-1. Clone the repository:
+- **Android Studio** (latest stable version)
+- **Kotlin** (installed with Android Studio)
+- **Android Emulator** or a **physical device** for testing
+- **Git** installed on your machine to clone the repository
+
+### Steps:
+1. **Clone the repository**:
+   First, clone the repository to your local machine:
    ```bash
    git clone https://github.com/your-username/khushibaby-app.git
