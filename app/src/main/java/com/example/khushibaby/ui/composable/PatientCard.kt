@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.khushibaby.R
 import com.example.khushibaby.data.model.Patient
+import com.example.khushibaby.ui.theme.buttonColor
 
 
 @Composable
@@ -97,7 +99,7 @@ fun PatientCard(onClick: () -> Unit, patient: Patient) {
                                 Spacer(modifier = Modifier.size(5.dp))
                                 Text(
                                     modifier = Modifier.weight(0.4f),
-                                    text = stringResource(R.string.age_years, patient.age),
+                                    text = stringResource(R.string.health_id_, patient.healthId),
                                     textAlign = TextAlign.End,
                                     style = TextStyle(
                                         fontSize = 13.sp,
@@ -115,10 +117,22 @@ fun PatientCard(onClick: () -> Unit, patient: Patient) {
                                 ),
                             )
                             Spacer(modifier = Modifier.size(5.dp))
-                            Text(
-                                text = stringResource(R.string.health_id_, patient.healthId),
-                                style = TextStyle(fontSize = 13.sp),
-                            )
+                            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier) {
+                                Text(
+                                    text = stringResource(R.string.age_years, patient.age),
+                                    style = TextStyle(fontSize = 13.sp),
+                                    modifier = Modifier.weight(0.7f)
+                                )
+                                Spacer(modifier = Modifier.size(5.dp))
+                                Box(modifier = Modifier.weight(0.3f)) {
+                                    ChipView(
+                                        stringResource(R.string.see_visits), Color.White,
+                                        buttonColor
+                                    )
+                                }
+
+                            }
+
                         }
 
                     }
