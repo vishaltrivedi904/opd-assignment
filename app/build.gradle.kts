@@ -43,6 +43,10 @@ android {
     kapt {
         correctErrorTypes = true
     }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
 }
 
 dependencies {
@@ -55,6 +59,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.junit.ktx)
+    implementation(libs.core.ktx)
+    implementation(libs.androidx.runner)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -75,6 +82,15 @@ dependencies {
     implementation(libs.converter.gson)
     implementation (libs.androidx.work.runtime)
     implementation (libs.androidx.work.runtime.ktx)
+    testImplementation ("org.mockito:mockito-core:4.0.0")
+    testImplementation ("org.mockito:mockito-inline:4.0.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.2")
+    testImplementation ("androidx.room:room-testing:2.5.0")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+    testImplementation ("com.google.dagger:hilt-android-testing:2.41")
+    testImplementation ("io.mockk:mockk-android:1.13.16")
+    testImplementation ("org.jacoco:org.jacoco.agent:0.8.7")
 
 
 }

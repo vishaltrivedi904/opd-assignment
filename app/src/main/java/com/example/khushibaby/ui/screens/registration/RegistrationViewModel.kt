@@ -12,19 +12,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RegistrationViewModel @Inject constructor(private val patientRepository: PatientRepository) :
-    ViewModel() {
+class RegistrationViewModel @Inject constructor(private val patientRepository: PatientRepository) : ViewModel() {
+
     private val _patient = MutableLiveData<Response<Patient>>()
     val patient: LiveData<Response<Patient>> get() = _patient
 
-    fun registerPatient(
-        name: String,
-        age: Int,
-        gender: String,
-        contactNumber: String?,
-        location: String,
-        healthId: String
-    ) {
+    fun registerPatient(name: String, age: Int, gender: String, contactNumber: String?, location: String, healthId: String) {
         _patient.value = Response.Loading
         viewModelScope.launch {
             try {

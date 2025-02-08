@@ -72,6 +72,4 @@ class PrescriptionViewModel @Inject constructor(private val visitRepository: Vis
         }
 
     }
-
-
 }

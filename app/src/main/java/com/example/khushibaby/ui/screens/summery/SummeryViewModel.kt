@@ -18,11 +18,8 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
-class SummeryViewModel @Inject constructor(
-    private val patientRepository: PatientRepository,
-    private val visitRepository: VisitRepository
-) :
-    ViewModel() {
+class SummeryViewModel @Inject constructor(private val patientRepository: PatientRepository, private val visitRepository: VisitRepository) : ViewModel() {
+
     private val _patient = MutableLiveData<Response<Patient?>>()
     val patient: LiveData<Response<Patient?>> get() = _patient
 
