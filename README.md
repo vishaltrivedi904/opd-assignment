@@ -118,4 +118,4 @@ Before running the app, make sure you have the following:
 1. **Clone the repository**:
    First, clone the repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/khushibaby-app.git
+   git clone https://github.com/vishaltrivedi904/opd-assignment.git
